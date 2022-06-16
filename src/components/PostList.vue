@@ -6,7 +6,7 @@
         <div class="blog__content">
             <h2>{{post.title}}</h2>
             <p class="content-preview">{{ post.description }}</p>
-            <router-link class="link link-light" to="#">
+            <router-link class="link link-light" :to="`/post/${post.id}`" :key="post">
                 Смотреть пост
             </router-link>
         </div> 
@@ -21,10 +21,8 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-
-
-
 .blog-wrapper{
+    background-color: white;
     display:flex;
     flex-direction: row;
     box-shadow: 0px 0px 4px 0px;

@@ -6,6 +6,7 @@
     <div class="section">
       <p class="section__title">Описание:</p>
       <p class="section__description">{{ post.body }}</p>
+      <!-- <button @click="submit()">Отправить</button> -->
     </div>
   </div>
 </div>
@@ -13,24 +14,37 @@
 </template>
 
 <script>
+// import posts from '@/store/modules/post';
+// import {mapGetters, mapActions} from 'vuex'
 import posts from '/public/posts'
 export default {
+  // computed: mapGetters(['allPosts']),
+  // methods: mapActions(['fetchPosts']),
+  //   async mounted(){
+  //       this.fetchPosts();
+  //   },
     data() {
-        return {
-            post: null,
-        }
+      return {
+        post: null,
+      }
     },
-    created() {
-        const post = posts.find(post => post.id == this.$route.params.id)
-            if (post) {
-                this.post = post
-            }
-    }
+    created() {    
+      const post = posts.find(post => post.id == this.$route.params.id)
+          if (post) {
+              this.post = post
+          }
+    },
+    // methods:{
+    //   submit(){
+    //     console.log($store.state.posts)
+    //   }
+    // }
 }
 </script>
 
 <style lang="scss" scoped>
 .post-page {
+  background-color: #fff;
   padding-bottom: 100px;
   .back {
     color: #000000;
@@ -49,7 +63,7 @@ export default {
       height: 3px;
       bottom: 0;
       left: 0;
-      background: linear-gradient(90deg, #EB5804 0%, rgba(0,0,0,0) 90%);
+      background: linear-gradient(90deg, #0483eb 0%, rgba(0,0,0,0) 90%);
     }
   }
   img {
@@ -61,7 +75,7 @@ export default {
   }
   .section {
     &__title {
-      color: #EB5804;
+      color: #149eee;
       font-weight: 700;
       font-size: 25px;
       margin-bottom: 10px;

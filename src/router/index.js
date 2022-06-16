@@ -3,6 +3,7 @@ import MainPage from '../pages/MainPage'
 import Login from '../pages/Login'
 import AuthorPanel from '../pages/AuthorPanel'
 import PostPage from '../pages/PostPage'
+import NotFound from '../pages/404'
 
 const routes = [
   {
@@ -31,6 +32,11 @@ const routes = [
     name: 'PostPage',
     component: PostPage
   },
+  {
+    path: "/:catchAll(.*)",
+    name:'notFound',
+    component: NotFound
+  }
 ]
 
 const router = createRouter({
